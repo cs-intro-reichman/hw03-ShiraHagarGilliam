@@ -60,14 +60,12 @@ public class LoanCalc {
 		double right = loan;
 		double left = 0;
 		double payment = (right + left) / 2;
-    	while(Math.abs(endBalance(loan, rate, n, payment)) > epsilon) {
+    	while((right - left) > epsilon) {
 			iterationCounter++;
-			if (endBalance(loan, rate, n, payment) > 0) {
+			if ((endBalance(loan, rate, n, payment) * endBalance(loan, rate, n, left)) > 0) {
 				left = payment;
-			} else if (endBalance(loan, rate, n, payment) < 0) {
-				right = payment;
 			} else {
-				return payment;
+				right = payment;
 			}
 			payment = (right + left) / 2;
 		}	
