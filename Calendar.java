@@ -1,4 +1,4 @@
-public class Calendar1 {	
+public class Calendar {	
 	static int dayOfMonth = 1;   
 	static int month = 1;
 	static int year = 1900;
@@ -6,25 +6,19 @@ public class Calendar1 {
 	static int nDaysInMonth = 31;
 	
 	public static void main(String args[]) {
-		int debugDaysCounter = 0;
-		int sundaysCount = 0;
-	 	while (year < 2000) {
+		int givenYear = Integer.parseInt(args[0]);
+	 	while (year < givenYear) {
+			advance();
+		} 
+		while (year == givenYear) {
 			System.out.print(dayOfMonth + "/" + month + "/" + year);
 			if(dayOfWeek == 1) {
 				System.out.print(" sunday");
-				if(dayOfMonth == 1) {
-					sundaysCount++;
-				}
 			}
-			System.out.println("");
-			advance();
-			debugDaysCounter++;
-			if (debugDaysCounter == 36500) {
-				break;
-			}
+				advance();
+				System.out.println("");
 		}
-		System.out.print("During the 20th century, " + sundaysCount + " Sundays fell on the first day of the month");
-        }
+	}
 	
 	 private static void advance() {
 		 dayOfWeek++;
