@@ -13,7 +13,7 @@ public class Calendar {
 		while (year == givenYear) {
 			System.out.print(dayOfMonth + "/" + month + "/" + year);
 			if(dayOfWeek == 1) {
-				System.out.print(" sunday");
+				System.out.print(" Sunday");
 			}
 				advance();
 				System.out.println("");
